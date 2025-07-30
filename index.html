@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>THXN Notify Redirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const placeId = params.get("placeId");
+    const jobId = params.get("jobId");
+
+    if (placeId && jobId) {
+      // Redirige automáticamente al servidor del juego
+      window.location.href = roblox://placeId=${placeId}&gameInstanceId=${jobId};
+    } else {
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.innerHTML = "<h2 style='font-family:sans-serif;'>Faltan parámetros en el enlace (placeId y jobId)</h2>";
+      });
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
