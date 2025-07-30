@@ -5,20 +5,19 @@
     <title>THXN Notify Redirect</title>
     <script>
       window.onload = function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const placeId = urlParams.get('placeId');
-        const jobId = urlParams.get('jobId');
+        const params = new URLSearchParams(window.location.search);
+        const placeId = params.get("placeId");
+        const jobId = params.get("jobId");
 
         if (placeId && jobId) {
           const robloxUrl = roblox://placeId=${placeId}&gameInstanceId=${jobId};
           window.location.href = robloxUrl;
         } else {
-          document.body.innerHTML = "<h1 style='color: red; font-family: sans-serif;'>❌ Faltan parámetros: placeId o jobId</h1>";
+          document.body.innerHTML = "<h2 style='color:red;'>❌ Faltan parámetros (placeId o jobId)</h2>";
         }
       };
     </script>
   </head>
   <body>
-    <h1 style="font-family: sans-serif;'>🔄 Redirigiendo a Roblox...</h1>
   </body>
 </html>
